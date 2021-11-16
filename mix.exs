@@ -20,6 +20,8 @@ defmodule SiteReboot.MixProject do
 
   # Run "mix help deps" to learn about dependencies.
   defp deps do
-    []
+    [
+      {:hackney, "~> 1.10"}
+    ]
   end
 end

@@ -1,7 +1,7 @@
 defmodule SiteReboot do
   @spec run() :: {:ok, :passed | :rebooted} | {:error, {:check, term()} | {:reboot, term()}}
   def run do
-    with {:check, :fail} <- {:check, check_site()} do
+    with {:check, {:ok, :fail}} <- {:check, check_site()} do
       {:reboot, reboot_site()}
     end
     |> handle()
@@ -19,7 +19,7 @@ defmodule SiteReboot do
     apply(module, :run, [opts])
   end
 
-  defp handle({:check, :pass}) do
+  defp handle({:check, {:ok, :pass}}) do
     with {:ok, callback} <- Keyword.fetch(check_config!(), :pass_callback) do
       apply_callback(callback, [])
     end

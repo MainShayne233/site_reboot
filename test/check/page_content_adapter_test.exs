@@ -10,7 +10,7 @@ defmodule SiteReboot.Check.PageContentAdapterTest do
           pattern: "<title>JCAC</title>"
         )
 
-      assert res == :pass
+      assert res == {:ok, :pass}
     end
 
     @tag :network
@@ -21,7 +21,7 @@ defmodule SiteReboot.Check.PageContentAdapterTest do
           pattern: "I don't expect this text to ever be on the page"
         )
 
-      assert res == :fail
+      assert res == {:ok, :fail}
     end
 
     @tag :network

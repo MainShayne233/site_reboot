@@ -2,7 +2,6 @@ defmodule SiteReboot.Reboot.DigitalOceanAdapterTest do
   use ExUnit.Case
 
   describe "run/1" do
-    @tag :network
     @tag :dangerous
     test "successful reboot" do
       bearer_token = System.fetch_env!("DO_BEARER_TOKEN")
@@ -17,7 +16,6 @@ defmodule SiteReboot.Reboot.DigitalOceanAdapterTest do
       assert res == :ok
     end
 
-    @tag :network
     @tag :dangerous
     test "failed reboot" do
       bearer_token = System.fetch_env!("DO_BEARER_TOKEN")

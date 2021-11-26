@@ -1,2 +1,2 @@
-ExUnit.configure(exclude: [:network])
+ExUnit.configure(exclude: [:network, :dangerous])
 ExUnit.start()

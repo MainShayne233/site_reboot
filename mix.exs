@@ -14,7 +14,8 @@ defmodule SiteReboot.MixProject do
   # Run "mix help compile.app" to learn about applications.
   def application do
     [
-      extra_applications: [:logger]
+      extra_applications: [:logger],
+      mod: {SiteReboot.Application, []}
     ]
   end
 
@@ -23,7 +24,10 @@ defmodule SiteReboot.MixProject do
     [
       {:tesla, "~> 1.4"},
       {:hackney, "~> 1.10"},
-      {:jason, "~> 1.2"}
+      {:jason, "~> 1.2"},
+      {:quantum, "~> 3.0"},
+      {:maru, "~> 0.13.2"},
+      {:plug_cowboy, "~> 2.0"}
     ]
   end
 end
